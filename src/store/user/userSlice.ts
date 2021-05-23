@@ -1,16 +1,16 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { User } from "../../api/swagger";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {User} from "../../api/swagger";
 
-type UserState = User | null
+type UserState = { info:  User | null }
 
-const initialState: UserState = null as UserState;
+const initialState: UserState = {info: null};
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
         login: (state, action: PayloadAction<User>) => {
-            state = action.payload;
+            state.info = action.payload;
         },
         logout: () => initialState,
     }

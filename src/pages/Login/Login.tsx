@@ -1,11 +1,11 @@
 import React from "react";
-import { Button, Form, Input } from "antd";
-import { LoginViewModel } from "../../api/swagger";
+import {Button, Form, Input} from "antd";
+import {LoginViewModel} from "../../api/swagger";
 import AccountApi from "../../api/AccountApi";
 import {useDispatch} from "react-redux";
 import {login} from "../../store/user/userSlice";
 
-import styles from './Login.less'
+import styles from './Login.module.css';
 
 const LoginPage: React.FC = () => {
     const [form] = Form.useForm<LoginViewModel>();
@@ -28,6 +28,7 @@ const LoginPage: React.FC = () => {
                     layout="vertical"
                     hideRequiredMark
                     onFinish={handleFinish}
+                    className={styles.wrapper}
                 >
                     <h1 className={styles.title}>Log In</h1>
 
@@ -42,7 +43,7 @@ const LoginPage: React.FC = () => {
                     </div>
 
                     <div className={styles.footer}>
-                        <Button block>
+                        <Button block type="primary" htmlType="submit">
                             lets chat!
                         </Button>
                     </div>

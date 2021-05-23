@@ -1,13 +1,27 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "../store";
+import {Button} from "antd";
+import AccountApi from "../api/AccountApi";
+import {logout} from "../store/user/userSlice";
 
 const Private: React.FC = () => {
-    const user = useSelector((state: RootState) => state.user!);
+    const dispatch = useDispatch();
+    const user = useSelector((state: RootState) => state.user.info);
+
+    const handleLogout = React.useCallback(() => {
+        AccountApi.logout()
+            .then(() => dispatch(logout()));
+    }, [])
 
     return (
         <div>
-            your name is {user.displayName?? user.login}
+            You are <br/>
+            {JSON.stringify(user)}
+            <br/>
+            <Button size='large' onClick={handleLogout}>
+                logout
+            </Button>
         </div>
     )
 

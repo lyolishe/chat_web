@@ -1,0 +1,29 @@
+.root {
+  width: 100%;
+  height: 100%;
+  background-color: #211c1c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  padding: 16px 20px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  border-bottom: 1px solid grey;
+}
+
+.footer {
+  margin-top: auto;
+}
